@@ -1,0 +1,124 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+Prisoner's Dilemma Online Game: Development Plan
+
+Overview
+This project is to create an online version of the Prisoner's Dilemma game, where players log in, get matched with another player (or a bot if no human is available), and play a random number of rounds (up to 20) per session. The plan below outlines the required features, architecture, and development phases for coding agents to follow.
+
+1. Core Features
+
+## User Management
+User Registration & Login: Email/password or social login for authentication. Allows for anonymous games as well.
+
+## Profile Management
+Basic user profile with stats/history for registred users.
+
+## Matchmaking
+Queue System: Players are queued and matched with others seeking a game.
+
+## Bot Fallback 
+If no player is available within a timeout, match with a bot using predefined or adaptive strategies.
+
+## Game Session
+Session Creation: Start a session with two players (or player and bot), assign a random number of rounds (between 5 and 20).
+
+## Round Logic 
+Each round, both players secretly choose "Cooperate" or "Defect," then reveal choices and update scores.
+
+## Scoring
+Use a payoff matrix (e.g., T=8, R=5, P=3, S=0).
+
+## Session End: After all rounds, display results and update player stats.
+
+## Bot Logic
+Basic Bots: Implement strategies like Always Cooperate, Always Defect, Tit-for-Tat, Random.
+
+## UI/UX
+Lobby: Show available games, player stats, and allow joining/creating games.
+
+## Game Screen 
+Display round number, choices, payoffs, and running scores.
+
+## Results Screen 
+Show final results and allow rematch or return to lobby.
+
+2. Technical Architecture
+
+## Frontend
+Framework: using Typescript.
+
+## WebSockets 
+For real-time updates between players and server.
+
+## Backend
+Server Use FastAPI.
+
+## Database 
+- Store users, sessions, stats. Start with SQLite
+
+## Authentication 
+JWT or OAuth2 for secure user sessions.
+
+## Matchmaking Service
+Handles player queue, matches, and bot assignment.
+
+## Game Logic Engine
+Manages game state, round resolution, and scoring.
+
+3. Development Phases
+Phase 1: Planning & Setup
+Define requirements and user stories.
+
+Set up version control and CI/CD pipelines.
+
+Choose tech stack and set up project skeleton.
+
+Phase 2: Core Systems
+Implement user authentication and profile management.
+
+Build matchmaking service with player queue and bot fallback.
+
+Develop game session and round logic, including payoff matrix and result calculation.
+
+Phase 3: Bot Implementation
+Add basic bot strategies (Always Cooperate, Always Defect, Tit-for-Tat, Random).
+
+(Optional) Implement advanced bots using machine learning.
+
+Phase 4: Frontend Development
+Design and build UI for lobby, game, and results screens.
+
+Integrate with backend via REST/WebSocket APIs.
+
+Phase 5: Testing & QA
+Unit and integration tests for backend and frontend.
+
+Simulate multiple concurrent games and edge cases (e.g., player disconnects).
+
+Phase 6: Deployment & Monitoring
+Deploy to cloud platform.
+
+Set up monitoring and logging for live game sessions.
+
+5. Optional Enhancements
+Leaderboard: Global or friend-based rankings.
+
+Analytics: Track player strategies and success rates.
+
+Custom Game Modes: Allow players to set round count or bot difficulty.
+
+Mobile Support: Responsive design or native apps.
+
+6. References for Coding Agents
+Game Logic Examples: 
+
+Bot Strategies: 
+
+Multiplayer Architecture: 
+
+Payoff Matrix Details: 
+
+User Authentication: 
